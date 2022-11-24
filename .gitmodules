@@ -1,0 +1,8 @@
+[submodule "vendor/vendor-1"]
+	path = vendor/vendor-1
+	url = https://github.com/DOUS3L/submodule-test-child-1.git
+	branch = master
+[submodule "vendor/vendor-2"]
+	path = vendor/vendor-2
+	url = https://github.com/DOUS3L/submodule-test-child-2.git
+	branch = master
