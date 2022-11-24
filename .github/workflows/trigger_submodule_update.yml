@@ -1,5 +1,7 @@
 name: CI
-on: [repository_dispatch]
+on:
+  - repository_dispatch:
+    types: [on-demand-test]
 
 jobs:
   build:
@@ -14,11 +16,13 @@ jobs:
         run: |
           git pull --recurse-submodules
           git submodule update --init vendor/vendor-1
+          git submodule update --init vendor/vendor-2
           git submodule update --remote vendor/vendor-1
+          git submodule update --remote vendor/vendor-2
       - name: Push changes
         run: |
-          git config --global user.name 'DOUS3L'
-          git config --global user.email 'aldo101162@gmail.com'
+          git config --global user.name 'github-action'
+          git config --global user.email '${{ github.actor }}@users.noreply.github.com'
           git add .
           git commit -m "Automated submodule update"
           git push
