@@ -16,9 +16,7 @@ jobs:
         run: |
           git pull --recurse-submodules
           git submodule update --init vendor/vendor-1
-          git submodule update --init vendor/vendor-2
           git submodule update --remote vendor/vendor-1
-          git submodule update --remote vendor/vendor-2
       - name: Push changes
         run: |
           git config --global user.name 'github-action'
